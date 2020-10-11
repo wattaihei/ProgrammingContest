@@ -9,35 +9,33 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "stopOnEntry": true
-          },
-
-        {
-            "name": "clang++ build and debug active file",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "stopAtEntry": true,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "clang++ build active file",
-            "logging": {
-                "trace": true,
-                "traceResponse": true,
-                "engineLogging": true
-            }
         },
         {
-            "name": "(lldb) Launch",
+            "name": "C++: build and debug active file",
             "type": "lldb",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "clang++ build active file"
+            "preLaunchTask": "C/C++: gcc build active file",
+            "expressions": "simple",
+        },
+        {
+            "name": "C++ build and debug (gdb)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "C/C++: gcc build active file",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
         }
     ]
 }

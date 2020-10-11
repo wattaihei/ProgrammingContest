@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "iostream": "cpp"
-    },
-    "python.pythonPath": "/Users/taihei/anaconda3/envs/Taihei/bin/python"
+        "iostream": "cpp",
+        "string": "cpp",
+        "type_traits": "cpp"
+    }
 }

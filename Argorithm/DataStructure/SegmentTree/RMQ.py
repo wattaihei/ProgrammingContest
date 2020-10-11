@@ -55,6 +55,7 @@ class SegmentTree:
             L >>= 1; R >>= 1
         return s
 
+"""
 N, Q = map(int, input().split())
 Query = [list(map(int, input().split())) for _ in range(Q)]
 
@@ -65,3 +66,4 @@ for com, x, y in Query:
         ST.update(x, y)
     else:
         print(ST.query_min(x, y+1)[0])
+"""

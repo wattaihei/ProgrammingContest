@@ -22,10 +22,12 @@ for i in reversed(range(N)):
         if B[bind] > a:
             if bind > 0 and B[bind-1] <= a:
                 ans = (ans *  (defined[bind] - i) ) % mod
-                if B[bind] == a:
+                if B[bind-1] == a:
                     defined[bind-1] = i
                 bind -= 1
             else:
                 ans = 0
                 break
+if bind != 0 or defined[bind] == -1:
+    ans = 0
 print(ans)
