@@ -18,7 +18,29 @@
                 "kind": "build",
                 "isDefault": true
             }
-        }
+        },
+        {
+            "type": "shell",
+            "label": "clang++ build active file",
+            "command": "/usr/bin/clang++",
+            "args": [
+              "-std=c++17",
+              "-stdlib=libc++",
+              "-g",
+              "${file}",
+              "-o",
+              "${fileDirname}/${fileBasenameNoExtension}",
+              "-I",
+              "/Users/taihei/ProgrammingContest/ac-library"
+            ],
+            "options": {
+              "cwd": "${workspaceFolder}"
+            },
+            "group": {
+              "kind": "build",
+              "isDefault": true
+            }
+          }
     ],
     "version": "2.0.0"
 }

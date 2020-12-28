@@ -1,6 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// 比較関数
+class comp {
+    public:
+    bool operator()(edge a, edge b) {
+        return a.t > b.t;
+    }
+};
+
 int main() {
     // 固有小数点に合わせる
     cout << fixed << setprecision(10);

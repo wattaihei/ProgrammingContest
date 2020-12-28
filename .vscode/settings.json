@@ -3,5 +3,6 @@
         "iostream": "cpp",
         "string": "cpp",
         "type_traits": "cpp"
-    }
+    },
+    "python.pythonPath": "/usr/local/bin/python3"
 }

@@ -5,37 +5,65 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Python 3.9",
             "type": "python",
             "request": "launch",
             "program": "${file}",
+            "python": "/usr/local/bin/python3"
         },
         {
-            "name": "C++: build and debug active file",
+            "name": "Pypy 3",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "python": "/usr/local/bin/pypy3"
+        },
+        {
+            "name": "C++: (clang + lldb)",
             "type": "lldb",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "C/C++: gcc build active file",
+            "preLaunchTask": "clang++ build active file",
             "expressions": "simple",
         },
-        {
-            "name": "C++ build and debug (gdb)",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "preLaunchTask": "C/C++: gcc build active file",
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
-        }
+        // {
+        //     "name": "C++: (gcc + lldb)",
+        //     "type": "lldb",
+        //     "request": "launch",
+        //     "program": "${fileDirname}/${fileBasenameNoExtension}",
+        //     "args": [],
+        //     "cwd": "${workspaceFolder}",
+        //     "preLaunchTask": "C/C++: gcc build active file",
+        //     "expressions": "simple",
+        // },
+        // {
+        //     "name": "C++ build and debug (gdb)",
+        //     "type": "cppdbg",
+        //     "request": "launch",
+        //     "program": "${fileDirname}/${fileBasenameNoExtension}",
+        //     "args": [],
+        //     "stopAtEntry": false,
+        //     "cwd": "${workspaceFolder}",
+        //     "preLaunchTask": "C/C++: gcc build active file",
+        //     "MIMode": "gdb",
+        //     "miDebuggerPath": "/usr/local/bin/gdb",
+        //     "pipeTransport": {
+        //         "pipeCwd": "/usr/bin",
+        //         "pipeProgram": "/bin/sh",
+        //         "debuggerPath": "/usr/local/bin/gdb",
+        //         "pipeArgs": [
+        //             "-c"
+        //         ]
+        //     },
+        //     "setupCommands": [
+        //         {
+        //             "description": "Enable pretty-printing for gdb",
+        //             "text": "-enable-pretty-printing",
+        //             "ignoreFailures": true
+        //         }
+        //     ]
+        // },
     ]
 }

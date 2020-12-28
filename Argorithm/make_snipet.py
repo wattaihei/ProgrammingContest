@@ -3,11 +3,18 @@ import json
 basejsonpath = "/Users/taihei/Library/Application Support/Code/User/snippets/"
 
 info = {
-    "code_path" : "./cpp/combination.cpp",
+    "code_path" : "/Users/taihei/ProgrammingContest/JOI/予選/2016/probF.cpp",
     "write_file" : "cpp.json",
-    "prefix" : "combination",
-    "description" : "combination"
+    "prefix" : "chmin",
+    "description" : "chmin"
 }
+
+# info = {
+#     "code_path" : "/Users/taihei/ProgrammingContest/Codeforces/CR669/probB.cpp",
+#     "write_file" : "cpp.json",
+#     "prefix" : "include stdc++ query",
+#     "description" : "include query"
+# }
 
 
 def read_snippet_file(filename):
