@@ -40,6 +40,17 @@
               "kind": "build",
               "isDefault": true
             }
+          },
+          {
+            "type": "shell",
+            "label": "ac-library expander",
+            "command": "/usr/local/bin/python3",
+            "args": [
+              "/Users/taihei/ProgrammingContest/ac-library/expand.py",
+              "${file}",
+              "--lib",
+              "/Users/taihei/ProgrammingContest/ac-library"
+            ]
           }
     ],
     "version": "2.0.0"

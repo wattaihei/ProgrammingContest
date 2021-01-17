@@ -28,6 +28,17 @@
             "preLaunchTask": "clang++ build active file",
             "expressions": "simple",
         },
+        {
+            "name": "ac-library expander",
+            "type": "python",
+            "request": "launch",
+            "program": "/Users/taihei/ProgrammingContest/ac-library/expand.py",
+            "args": [
+                "${file}",
+                "--lib",
+                "/Users/taihei/ProgrammingContest/ac-library"
+              ]
+        }
         // {
         //     "name": "C++: (gcc + lldb)",
         //     "type": "lldb",
