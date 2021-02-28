@@ -9,6 +9,47 @@ class comp {
     }
 };
 
+vector<ll> pickup_prime(ll M) {
+    vector<int> is_prime(M+1, -1);
+    for (ll m=2; m<M+1; m++) {
+        if (is_prime[m] == -1) {
+            is_prime[m] = 1;
+            ll l = 2;
+            while (m*l <= M) {
+                is_prime[m*l] = 0;
+                l++;
+            }
+        }
+    }
+    vector<ll> primes;
+    for (int m=2; m<M+1; m++) {
+        if (is_prime[m] == 1) {
+            primes.push_back(m);
+        }
+    }
+    return primes;
+}
+
+set<ll> prime(ll n) {
+    n = max(n, -n);
+    set<ll> ret;
+    for (ll num=2; num*num<=n; num++) {
+        while (n%num == 0) {
+            n /= num;
+            ret.insert(num);
+        }
+        if (num > n) break;
+    }
+    if (n != 1) ret.insert(n);
+    return ret;
+}
+
+ll gcd(ll a, ll b) {
+    if (b > a) swap(a, b);
+    if (b == 0) return a;
+    return gcd(b, a%b);
+}
+
 int main() {
     // 固有小数点に合わせる
     cout << fixed << setprecision(10);

@@ -3,8 +3,9 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**"
-                //"/usr/local/include/**"
+                "${workspaceFolder}/**",
+                "~/ProgrammingContest/ac-library/**",
+                "/usr/local/include/**"
             ],
             "defines": [],
             "macFrameworkPath": [],
