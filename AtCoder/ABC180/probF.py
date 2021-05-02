@@ -3,17 +3,43 @@ input = sys.stdin.buffer.readline
 
 mod = 10**9+7
 
+def perm(n, r, mod=mod):
+    if ( r<0 or r>n ):
+        return 0
+    return g1[n] * g2[n-r] % mod
+
+NN = 10**5 # 使うデータによって変える
+g1 = [1, 1] # 元テーブル
+g2 = [1, 1] #逆元テーブル
+inverse = [0, 1] #逆元テーブル計算用テーブル
+
+for i in range( 2, NN + 1 ):
+    g1.append( ( g1[-1] * i ) % mod )
+    inverse.append( ( -inverse[mod % i] * (mod//i) ) % mod )
+    g2.append( (g2[-1] * inverse[-1]) % mod )
+
+
 N, M, L = map(int, input().split())
 
-dp = [[[0]*(N+1) for _ in range(M+2)] for _ in range(L+2)]
-dp[1][0][0] = 1
-dp[2][1][2] = 1
-dp[2][2][0] = 1 
-for l in range(2, L):
-    for m in range(M+1):
-        for k in range(N+1):
-            if 0 <= k-1 and m+1 <= M:
-                dp[l+1][m+1][k-1] = (dp[l+1][m+1][k-1] + dp[l][m][k] * k) % mod
-            if 0 <= k-2 and m+2 <= M:
-                dp[l+1][m+2][k-2] = (dp[l+1][m+2][k-2] + dp[l][m][k] * k*(k-1)//2) % mod
+inv2 = pow(2, mod-2, mod)
 
+dp = [[0]*(N*2+1) for _ in range(N*2+1)]
+dp[0][0] = 1
+
+for l in reversed(range(1, L+1)):
+    invl = pow(l, mod-2, mod)
+    for k in reversed(range(N)):
+        for m in reversed(range(M+1)):
+            if l == 1:
+                dp[m][k+1] = (dp[m][k+1] + dp[m][k] * (N-k)) % mod
+            elif l == 2:
+                dp[m+l][k+l] = (dp[m+l][k+l] + dp[m][k] * perm(N-k, l) * inv2) % mod
+                dp[m+l-1][k+l] = (dp[m+l-1][k+l] + dp[m][k] * perm(N-k, l) * inv2) % mod
+            else:
+                dp[m+l][k+l] = (dp[m+l][k+l] + dp[m][k] * perm(N-k, l) * inv2 * invl) % mod
+                dp[m+l-1][k+l] = (dp[m+l-1][k+l] + dp[m][k] * perm(N-k, l) * inv2) % mod
+
+    if l == L:
+        dp[0][0] = 0
+
+print(dp[M][N])
